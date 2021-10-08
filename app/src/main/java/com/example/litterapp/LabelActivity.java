@@ -30,7 +30,7 @@ public class LabelActivity extends AppCompatActivity {
 =======
             public void onClick( View view){
                 setContentView(R.layout.activity_menu);
->>>>>>> parent of 042f219 (Renamed Resource)
+
             }
         });
     }
