@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view){
+                setContentView(R.layout.activity_label);
                 Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 startActivity(intent);
             }
