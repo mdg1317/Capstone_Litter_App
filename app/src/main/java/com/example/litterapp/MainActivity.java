@@ -24,12 +24,11 @@ public class MainActivity extends AppCompatActivity {
         Button buttonMenu = findViewById(R.id.buttonMenu);
         ImageButton buttonCamera = findViewById(R.id.buttonCamera);
 
-        // change background color to red when clicking menu button
-        // TEMPORARY
+        // transition to menu screen when clicking on menu button
         buttonMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view){
-                layout.setBackgroundColor(Color.RED);
+                setContentView(R.layout.activity_menu);
             }
         });
 
