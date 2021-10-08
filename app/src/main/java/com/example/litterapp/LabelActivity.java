@@ -33,7 +33,7 @@ public class LabelActivity extends AppCompatActivity {
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View view){
-                setContentView(R.layout.activity_menu);
+                setContentView(R.layout.activity_main);
             }
         });
     }
