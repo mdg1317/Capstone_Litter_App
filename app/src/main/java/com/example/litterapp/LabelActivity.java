@@ -24,8 +24,13 @@ public class LabelActivity extends AppCompatActivity {
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
+<<<<<<< HEAD
             public void onClick(View v) {
                 finish();
+=======
+            public void onClick( View view){
+                setContentView(R.layout.activity_menu);
+>>>>>>> parent of 042f219 (Renamed Resource)
             }
         });
     }
