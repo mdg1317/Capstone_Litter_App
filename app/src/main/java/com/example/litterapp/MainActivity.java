@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
@@ -31,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // change background color to green when clicking camera button
-        // TEMPORARY
+        // Opens camera app when clicking camera button
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view){
-                layout.setBackgroundColor(Color.GREEN);
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intent);
             }
         });
 
