@@ -18,19 +18,22 @@ public class LabelActivity extends AppCompatActivity {
 
         final ConstraintLayout layout = findViewById(R.id.leaderboards_text);
         Button buttonBack = findViewById(R.id.button_back);
+        Button buttonFinish = findViewById(R.id.button_finish);
 
         // Go back to main activity when back button is pressed
         //buttonBack.setOnClickListener(view -> setContentView(R.layout.activity_main));
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
-<<<<<<< HEAD
             public void onClick(View v) {
                 finish();
-=======
-            public void onClick( View view){
-                setContentView(R.layout.activity_menu);
+            }
+        });
 
+        buttonFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
