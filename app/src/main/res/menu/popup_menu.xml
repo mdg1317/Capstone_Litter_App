@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Rewards"
+        android:id="@+id/buttonRewards"
+        android:text="Rewards" />
+    <item
+        android:title="Leaderboards"
+        android:id="@+id/buttonLeaderboards"
+        android:text="Leaderboards" />
+    <item
+        android:title="Settings"
+        android:id="@+id/buttonSettings"
+        android:text="Settings" />
+    <item
+        android:title="Exit"
+        android:id="@+id/buttonExit"
+        android:text="Exit" />
+</menu>
