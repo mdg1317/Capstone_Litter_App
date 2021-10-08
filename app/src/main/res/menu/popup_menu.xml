@@ -13,7 +13,7 @@
         android:id="@+id/buttonSettings"
         android:text="Settings" />
     <item
-        android:title="Exit"
-        android:id="@+id/buttonExit"
-        android:text="Exit" />
+        android:title="Label"
+        android:id="@+id/buttonLabel"
+        android:text="Label" />
 </menu>

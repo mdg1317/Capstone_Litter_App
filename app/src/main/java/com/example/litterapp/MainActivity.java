@@ -4,14 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -22,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ConstraintLayout layout = findViewById(R.id.layout);
+        final ConstraintLayout layout = findViewById(R.id.leaderboards_text);
         Button buttonMenu = findViewById(R.id.buttonMenu);
         ImageButton buttonCamera = findViewById(R.id.buttonCamera);
 
@@ -30,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         buttonMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view){
-                //setContentView(R.layout.activity_menu);
-
                 //show Popup menu
                 showMenu(view);
             }
@@ -62,16 +57,26 @@ public class MainActivity extends AppCompatActivity {
         PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+            // Create intents in order to run new activities
+            //Intent intent1 = new Intent(MainActivity.this, RewardsActivity.class);
+            //Intent intent2 = new Intent(MainActivity.this, LeaderboardsActivity.class);
+            //Intent intent3 = new Intent(MainActivity.this, SettingsActivity.class);
+            Intent intent4 = new Intent(MainActivity.this, LabelActivity.class);
+
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.buttonRewards)
+                    //startActivity(intent1);
                     return true;
                 if (item.getItemId() == R.id.buttonLeaderboards)
+                    //startActivity(intent2);
                     return true;
                 if (item.getItemId() == R.id.buttonSettings)
+                    //startActivity(intent3);
                     return true;
-                if (item.getItemId() == R.id.buttonExit)
-                    return true;
+                if (item.getItemId() == R.id.buttonLabel)
+                    startActivity(intent4);
                 return true;
             }
         });

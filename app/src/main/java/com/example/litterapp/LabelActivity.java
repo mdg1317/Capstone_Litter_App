@@ -16,24 +16,17 @@ public class LabelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_label);
 
-        final ConstraintLayout layout = findViewById(R.id.layout);
-        Button buttonBack = (Button) findViewById(R.id.button_back);
-        Button buttonFinish = (Button) findViewById(R.id.button_finish);
+        final ConstraintLayout layout = findViewById(R.id.leaderboards_text);
+        Button buttonBack = findViewById(R.id.button_back);
 
-        // Opens camera app when clicking camera button
+        // Go back to main activity when back button is pressed
+        //buttonBack.setOnClickListener(view -> setContentView(R.layout.activity_main));
+
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick( View view){
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                startActivity(intent);
-            }
-        });
+            public void onClick(View v) {
+                finish();
 
-        // transition to menu screen when clicking on menu button
-        buttonFinish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick( View view){
-                setContentView(R.layout.activity_main);
             }
         });
     }
