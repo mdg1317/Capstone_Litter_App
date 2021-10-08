@@ -1,24 +1,20 @@
 package com.example.litterapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-public class LabelActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class LeaderboardsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_label);
+        setContentView(R.layout.activity_leaderboards);
 
-        final ConstraintLayout layout = findViewById(R.id.leaderboards_text);
         Button buttonBack = findViewById(R.id.button_back);
-
-        // Go back to main activity when back button is pressed
-        //buttonBack.setOnClickListener(view -> setContentView(R.layout.activity_main));
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,4 +23,5 @@ public class LabelActivity extends AppCompatActivity {
             }
         });
     }
+
 }
