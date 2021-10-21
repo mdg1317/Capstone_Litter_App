@@ -17,20 +17,12 @@ public class RewardsActivity extends AppCompatActivity {
 
         Button buttonBack = findViewById(R.id.button_back);
 
-        /*// transition to menu screen when clicking on menu button
+        // transition to menu screen when clicking on menu button
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });*/
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
         });
     }
-
 }

@@ -25,7 +25,6 @@ public class LabelActivity extends AppCompatActivity {
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
-<<<<<<< HEAD
             public void onClick(View v) {
                 finish();
             }

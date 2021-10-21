@@ -12,8 +12,4 @@
         android:title="Settings"
         android:id="@+id/buttonSettings"
         android:text="Settings" />
-    <item
-        android:title="Label"
-        android:id="@+id/buttonLabel"
-        android:text="Label" />
 </menu>

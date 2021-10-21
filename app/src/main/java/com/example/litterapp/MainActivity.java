@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View view){
                 //setContentView(R.layout.activity_label);
+                Intent label = new Intent(MainActivity.this, LabelActivity.class);
+                startActivity(label);
                 Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 startActivity(intent);
             }
@@ -67,16 +69,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.buttonRewards)
-                    //startActivity(intent1);
-                    return true;
+                    //setContentView(R.layout.activity_rewards);
+                    //return true;
                 if (item.getItemId() == R.id.buttonLeaderboards)
                     //startActivity(intent2);
-                    return true;
+                    //return true;
                 if (item.getItemId() == R.id.buttonSettings)
                     //startActivity(intent3);
                     return true;
-                if (item.getItemId() == R.id.buttonLabel)
-                    startActivity(intent4);
+
                 return true;
             }
         });
