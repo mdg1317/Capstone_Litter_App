@@ -13,31 +13,38 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_back"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="14dp"
             android:layout_weight="1"
-            android:text="Back" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button_finish"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Finish" />
+            <Button
+                android:id="@+id/button_back"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Back" />
+
+            <Button
+                android:id="@+id/button_finish"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Finish" />
+
+        </LinearLayout>
 
         <ImageView
-            android:id="@+id/label_image"
+            android:id="@+id/image_display"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_height="0dp"
+            android:layout_weight="7" />
 
         <EditText
             android:id="@+id/text_edit_brand"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
@@ -46,7 +53,7 @@
         <EditText
             android:id="@+id/text_edit_material"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
@@ -55,7 +62,7 @@
         <EditText
             android:id="@+id/text_edit_object"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"

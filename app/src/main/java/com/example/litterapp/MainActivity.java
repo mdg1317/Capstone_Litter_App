@@ -116,8 +116,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 //setContentView(R.layout.activity_label);
                 Intent label = new Intent(MainActivity.this, LabelActivity.class);
                 startActivity(label);
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                startActivity(intent);
             }
         });
 
