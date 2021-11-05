@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LitterApp</string>
+    <string name="coords">0, 0</string>
 </resources>
