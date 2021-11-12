@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         OkHttpClient okHttpClient = new OkHttpClient();
 
         // building a request
-        Request request = new Request.Builder().url("http://192.168.1.11:5000/").build();
+        Request request = new Request.Builder().url("https://flask-basic-server-test.herokuapp.com/").build();
 
         // making call asynchronously
         okHttpClient.newCall(request).enqueue(new Callback() {
