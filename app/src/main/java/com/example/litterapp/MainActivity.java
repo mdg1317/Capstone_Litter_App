@@ -11,8 +11,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView pagenameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,5 +97,40 @@ public class MainActivity extends AppCompatActivity {
         });
 
         popupMenu.show();
+
+        // Code to interact with Flask
+
+        pagenameTextView = findViewById(R.id.pagename);
+
+        // creating a client
+        OkHttpClient okHttpClient = new OkHttpClient();
+
+        // building a request
+        Request request = new Request.Builder().url("http://192.168.1.11:5000/").build();
+
+        // making call asynchronously
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            // called if server is unreachable
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "server down", Toast.LENGTH_SHORT).show();
+                        pagenameTextView.setText("error connecting to the server");
+                    }
+                });
+            }
+
+            @Override
+            // called if we get a
+            // response from the server
+            public void onResponse(
+                    @NotNull Call call,
+                    @NotNull Response response)
+                    throws IOException {pagenameTextView.setText(response.body().string());
+            }
+        });
+
     }
 }
