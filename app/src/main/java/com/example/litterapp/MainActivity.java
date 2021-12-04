@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
     //private FusedLocationProviderClient fusedLocationClient;
 
-    private String url = "http://" + "172.20.10.5" + ":" + 5000 + "/";
+    private String url = "https://flask-basic-server-test.herokuapp.com/";
     private String postBodyString;
     private MediaType mediaType;
     private RequestBody requestBody;
@@ -74,7 +74,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postRequest("your message here", url);
+                getRequest("your message here", url);
             }
         });
 
@@ -185,12 +185,13 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         return requestBody;
     }
 
-    private void postRequest(String message, String URL) {
+    // Send a request to the server, currently doesn't send a POST request
+    private void getRequest(String message, String URL) {
         RequestBody requestBody = buildRequestBody(message);
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request
                 .Builder()
-                .post(requestBody)
+                //.post(requestBody)
                 .url(URL)
                 .build();
         okHttpClient.newCall(request).enqueue(new Callback() {
