@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.litterapp" >
+    package="com.example.litterapp">
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,14 +17,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
+        <!--<activity
+            android:name=".LoginActivity"
+            android:exported="false" /> -->
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBYzxnOMWVZMyRF6JT9NjcuyH2_sQSUfYQ" />
 
         <activity android:name=".LabelActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
