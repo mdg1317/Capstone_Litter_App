@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -43,7 +46,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    String URL = "http://192.168.1.34:5000/";
+    String address = "http://192.168.1.34:5000/";
+    String route = "getuser";
+    String URL = address + route;
     private String postBodyString;
     private MediaType mediaType;
     private RequestBody requestBody;
@@ -55,7 +60,10 @@ public class LoginActivity extends AppCompatActivity {
         return requestBody;
     }
 
+    OkHttpClient client = new OkHttpClient();
+
     private void postRequest(String message, String URL) {
+
         RequestBody requestBody = buildRequestBody(message);
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request
