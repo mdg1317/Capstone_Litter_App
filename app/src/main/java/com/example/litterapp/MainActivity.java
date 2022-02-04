@@ -154,23 +154,26 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
             // Create intents in order to run new activities
-            //Intent intent1 = new Intent(MainActivity.this, RewardsActivity.class);
-            //Intent intent2 = new Intent(MainActivity.this, LeaderboardsActivity.class);
-            //Intent intent3 = new Intent(MainActivity.this, SettingsActivity.class);
-            Intent intent4 = new Intent(MainActivity.this, LabelActivity.class);
+            Intent intent1 = new Intent(MainActivity.this, RewardsActivity.class);
+            Intent intent2 = new Intent(MainActivity.this, LeaderboardsActivity.class);
+            Intent intent3 = new Intent(MainActivity.this, SettingsActivity.class);
+            Intent intent4 = new Intent(MainActivity.this, LoginActivity.class);
 
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.buttonRewards)
-                    //setContentView(R.layout.activity_rewards);
-                    //return true;
-                if (item.getItemId() == R.id.buttonLeaderboards)
-                    //startActivity(intent2);
-                    //return true;
-                if (item.getItemId() == R.id.buttonSettings)
-                    //startActivity(intent3);
+                if (item.getItemId() == R.id.buttonRewards) {
+                    startActivity(intent1);
                     return true;
-
+                } else if (item.getItemId() == R.id.buttonLeaderboards) {
+                    startActivity(intent2);
+                    return true;
+                } else if (item.getItemId() == R.id.buttonSettings) {
+                    startActivity(intent3);
+                    return true;
+                } else if (item.getItemId() == R.id.buttonLogout) {
+                    startActivity(intent4);
+                    return true;
+                }
                 return true;
             }
         });

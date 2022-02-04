@@ -25,6 +25,9 @@ import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private String myUsername;
+    TextView usernameTest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +36,13 @@ public class LoginActivity extends AppCompatActivity {
         Button loginButton = findViewById(R.id.buttonLogin);
         Button guestButton = findViewById(R.id.buttonGuest);
         Button registerButton = findViewById(R.id.buttonCreateUser);
-        //TextView usernameTest = findViewById(R.id.test_username);
+        usernameTest = findViewById(R.id.test_username);
 
         // Checks database for login info
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view){
-                String myUsername = username.getText().toString();
+                myUsername = username.getText().toString();
                 //usernameTest.setText(myUsername);
 
                 postRequest(myUsername, URL);
@@ -64,8 +67,8 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    String address = "http://192.168.1.34:5000/";
-    String route = "getuser";
+    String address = "http://10.17.133.10:5000/";
+    String route = "login";
     String URL = address + route;
     private String postBodyString;
     private MediaType mediaType;
@@ -108,8 +111,18 @@ public class LoginActivity extends AppCompatActivity {
                         //} catch (IOException e) {
                             //e.printStackTrace();
                         //}
-                        Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent1);
+                        try {
+                            String name = response.body().string();
+                            if (name.equals(myUsername)) {
+                                Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent1);
+                            } else {
+                                usernameTest.setText("Invalid username");
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 });
             }

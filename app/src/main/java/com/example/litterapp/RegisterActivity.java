@@ -21,6 +21,7 @@ import okhttp3.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +36,12 @@ public class RegisterActivity extends AppCompatActivity {
                 String myUsername = username.getText().toString();
 
                 postRequest(myUsername, URL);
+
             }
         });
     }
 
-    String address = "http://192.168.1.34:5000/";
+    String address = "http://10.17.133.10:5000/";
     String route = "adduser";
     String URL = address + route;
     private String postBodyString;
@@ -80,6 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
                     public void run() {
                         try {
                             Toast.makeText(RegisterActivity.this, response.body().string(), Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

@@ -29,7 +29,10 @@
 
         <activity android:name=".LabelActivity" />
         <activity android:name=".MainActivity"/>
+        <activity android:name=".RewardsActivity"/>
+        <activity android:name=".LeaderboardsActivity"/>
         <activity android:name=".RegisterActivity"/>
+        <activity android:name=".SettingsActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
