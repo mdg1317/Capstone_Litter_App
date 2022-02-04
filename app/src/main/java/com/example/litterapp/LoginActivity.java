@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    String address = "http://127.0.0.1:5000/";
+    String address = "http://192.168.1.34:5000/";
     String route = "getuser";
     String URL = address + route;
     private String postBodyString;
@@ -78,10 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         return requestBody;
     }
 
-    OkHttpClient client = new OkHttpClient();
-
     private void postRequest(String message, String URL) {
-
         RequestBody requestBody = buildRequestBody(message);
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request
