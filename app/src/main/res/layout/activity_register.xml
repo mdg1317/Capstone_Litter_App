@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,42 +12,28 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_username"
-            android:layout_width="wrap_content"
+            android:id="@+id/textCreateUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create New User" />
+
+        <TextView
+            android:id="@+id/textNewUsername"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Username" />
 
         <EditText
-            android:id="@+id/editTextUsername"
+            android:id="@+id/editTextNewUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login" />
-
-        <TextView
-            android:id="@+id/test_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Username Input Test" />
-
-        <Button
-            android:id="@+id/buttonCreateUser"
+            android:id="@+id/buttonNewUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Create User" />
-
-        <Button
-            android:id="@+id/buttonGuest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Continue as Guest" />
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

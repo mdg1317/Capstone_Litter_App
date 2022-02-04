@@ -31,22 +31,40 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         EditText username = findViewById(R.id.editTextUsername);
         Button loginButton = findViewById(R.id.buttonLogin);
-        TextView usernameTest = findViewById(R.id.test_username);
+        Button guestButton = findViewById(R.id.buttonGuest);
+        Button registerButton = findViewById(R.id.buttonCreateUser);
+        //TextView usernameTest = findViewById(R.id.test_username);
 
-        // Opens camera app when clicking camera button
+        // Checks database for login info
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view){
                 String myUsername = username.getText().toString();
-                usernameTest.setText(myUsername);
+                //usernameTest.setText(myUsername);
 
                 postRequest(myUsername, URL);
             }
         });
 
+        guestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view){
+                Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent1);
+            }
+        });
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view){
+                Intent intent2 = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent2);
+            }
+        });
+
     }
 
-    String address = "http://192.168.1.34:5000/";
+    String address = "http://127.0.0.1:5000/";
     String route = "getuser";
     String URL = address + route;
     private String postBodyString;
@@ -88,11 +106,13 @@ public class LoginActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        try {
-                            Toast.makeText(LoginActivity.this, response.body().string(), Toast.LENGTH_LONG).show();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                        //try {
+                            //Toast.makeText(LoginActivity.this, response.body().string(), Toast.LENGTH_LONG).show();
+                        //} catch (IOException e) {
+                            //e.printStackTrace();
+                        //}
+                        Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent1);
                     }
                 });
             }

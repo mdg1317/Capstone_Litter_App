@@ -18,15 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <!--<activity
+        <!--
+        <activity
             android:name=".LoginActivity"
-            android:exported="false" /> -->
-
+            android:exported="false" />
+        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBYzxnOMWVZMyRF6JT9NjcuyH2_sQSUfYQ" />
 
         <activity android:name=".LabelActivity" />
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".RegisterActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
