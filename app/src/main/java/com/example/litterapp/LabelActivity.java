@@ -30,11 +30,6 @@ public class LabelActivity extends AppCompatActivity {
         Button buttonFinish = findViewById(R.id.button_finish);
         selectedImage = findViewById(R.id.image_display);
 
-        //final ConstraintLayout layout = findViewById(R.id.leaderboards_text);
-
-        // Go back to main activity when back button is pressed
-        //buttonBack.setOnClickListener(view -> setContentView(R.layout.activity_main));
-
         // Open camera when label screen is reached, or when the back button is pressed
         openCamera();
         buttonBack.setOnClickListener(new View.OnClickListener() {

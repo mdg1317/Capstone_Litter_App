@@ -13,6 +13,61 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/image_display"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7" />
+
+        <TextView
+            android:id="@+id/textLitterInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please select the type of litter collected:" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupLitter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <RadioButton
+                android:id="@+id/radioCigButts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cigarette Butt" />
+
+            <RadioButton
+                android:id="@+id/radioPlasticBottles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plastic Bottle" />
+
+            <RadioButton
+                android:id="@+id/radioFoodWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Food Wrapper" />
+
+            <RadioButton
+                android:id="@+id/radioPlasticBag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plastic Bag" />
+
+            <RadioButton
+                android:id="@+id/radioBevCan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RadioButton" />
+
+            <RadioButton
+                android:id="@+id/radioOther"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Other" />
+        </RadioGroup>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="14dp"
@@ -34,39 +89,6 @@
                 android:text="Finish" />
 
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/image_display"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="7" />
-
-        <EditText
-            android:id="@+id/text_edit_brand"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Brand" />
-
-        <EditText
-            android:id="@+id/text_edit_material"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Material" />
-
-        <EditText
-            android:id="@+id/text_edit_object"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Object" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
