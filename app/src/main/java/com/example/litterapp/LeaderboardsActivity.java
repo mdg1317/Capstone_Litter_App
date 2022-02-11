@@ -21,9 +21,9 @@ public class LeaderboardsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboards);
 
-        Button buttonBack = findViewById(R.id.button_back);
+        Button leaderboardsButtonBack = findViewById(R.id.leaderboardsButtonBack);
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+        leaderboardsButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

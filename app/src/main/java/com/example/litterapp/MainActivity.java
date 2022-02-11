@@ -158,6 +158,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             Intent intent2 = new Intent(MainActivity.this, LeaderboardsActivity.class);
             Intent intent3 = new Intent(MainActivity.this, SettingsActivity.class);
             Intent intent4 = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent5 = new Intent(MainActivity.this, GoalsActivity.class);
 
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -172,6 +173,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                     return true;
                 } else if (item.getItemId() == R.id.buttonLogout) {
                     startActivity(intent4);
+                    return true;
+                } else if (item.getItemId() == R.id.buttonGoals) {
+                    startActivity(intent5);
                     return true;
                 }
                 return true;

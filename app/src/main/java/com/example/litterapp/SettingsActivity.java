@@ -15,10 +15,10 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Button buttonBack = findViewById(R.id.button_back);
+        Button settingsButtonBack = findViewById(R.id.settingsButtonBack);
 
         // transition to menu screen when clicking on menu button
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+        settingsButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
                 finish();
