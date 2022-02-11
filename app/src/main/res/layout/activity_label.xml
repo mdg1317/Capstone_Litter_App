@@ -59,7 +59,7 @@
                 android:id="@+id/radioBevCan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Beverage Can" />
 
             <RadioButton
                 android:id="@+id/radioOther"
