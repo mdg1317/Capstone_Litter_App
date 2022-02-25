@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private String myUsername;
     TextView usernameTest;
+    ScoreRequests scoreRequestObject = new ScoreRequests();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    String address = "http://10.17.133.10:5000/";
+    String address = "http://192.168.1.34:5000/";
     String route = "login";
     String URL = address + route;
     private String postBodyString;
@@ -114,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             String name = response.body().string();
                             if (name.equals(myUsername)) {
+                                ScoreRequests.setUser(name);
                                 Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent1);
                             } else {

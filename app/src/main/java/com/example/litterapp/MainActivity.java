@@ -46,11 +46,13 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
     //private FusedLocationProviderClient fusedLocationClient;
 
-    private String url = "https://flask-basic-server-test.herokuapp.com/";
+    /*private String url = "https://flask-basic-server-test.herokuapp.com/";
     private String postBodyString;
     private MediaType mediaType;
-    private RequestBody requestBody;
+    private RequestBody requestBody;*/
     private Button connectButton;
+    private ScoreRequests scoreRequestObject = new ScoreRequests();
+    private int s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getRequest("your message here", url);
+                getScore();
             }
         });
 
@@ -185,7 +187,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         popupMenu.show();
     }
 
-    private RequestBody buildRequestBody(String msg) {
+    /*private RequestBody buildRequestBody(String msg) {
         postBodyString = msg;
         mediaType = MediaType.parse("text/plain");
         requestBody = RequestBody.create(postBodyString, mediaType);
@@ -220,6 +222,75 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                     public void run() {
                         try {
                             Toast.makeText(MainActivity.this, response.body().string(), Toast.LENGTH_LONG).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+    }*/
+    // Score methods (set score and get score from database)
+    // Post parameters: score (how many points to add), URL (where to send the request)
+
+    // setScore method:
+    // Arguments: score to add (in String format, for example "1")
+    // Returns: NA
+    public void addScore(String score) {
+        postRequest(score, postURL);
+    }
+
+    // getScore method:
+    // Arguments: NA
+    // Returns: Currently logged in user's score
+    public int getScore() {
+        postRequest("0", getURL);
+        return 0;
+    }
+
+    String address = "http://192.168.1.34:5000/";
+    String postRoute = "addscore";
+    String getRoute = "getscore";
+    String postURL = address + postRoute;
+    String getURL = address + getRoute;
+    private String postBodyString;
+    private MediaType mediaType;
+    private RequestBody requestBody;
+
+    private RequestBody buildRequestBody(String msg) {
+        postBodyString = msg;
+        mediaType = MediaType.parse("text/plain");
+        requestBody = RequestBody.create(postBodyString, mediaType);
+        return requestBody;
+    }
+
+    // Send post request to update/add to the score
+    private void postRequest(String score, String URL) {
+        RequestBody requestBody = buildRequestBody(score);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request
+                .Builder()
+                .post(requestBody)
+                .url(URL)
+                .build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(final Call call, final IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        call.cancel();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Toast.makeText(MainActivity.this, "Score:" + " " + response.body().string(), Toast.LENGTH_SHORT).show();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
