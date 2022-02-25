@@ -112,7 +112,7 @@ public class GoalsActivity extends AppCompatActivity {
                             String reply = response.body().string();
                             // Server will always return information about specified goal, update the page with this info
                             StringTokenizer st = new StringTokenizer(reply);
-                                switch (parseInt(st.nextToken())) {
+                                switch (parseInt(st.nextToken("_"))) {
                                     case 1:
                                         goal1.setText(st.nextToken());
                                         progress1.setText(st.nextToken() + "/" + st.nextToken());
