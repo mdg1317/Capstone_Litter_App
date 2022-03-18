@@ -30,6 +30,9 @@ public class GoalsActivity extends AppCompatActivity {
     TextView progress1;
     TextView progress2;
     TextView progress3;
+    TextView amount1;
+    TextView amount2;
+    TextView amount3;
 
     String address = "http://192.168.0.73:5000/";
     String route = "updateGoal";
@@ -58,6 +61,9 @@ public class GoalsActivity extends AppCompatActivity {
         progress1 = findViewById(R.id.progress1);
         progress2 = findViewById(R.id.progress2);
         progress3 = findViewById(R.id.progress3);
+        amount1 = findViewById(R.id.amount1);
+        amount2 = findViewById(R.id.amount2);
+        amount3 = findViewById(R.id.amount3);
 
         // transition to menu screen when clicking on menu button
         goalsButtonBack.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +79,8 @@ public class GoalsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Generate a new goal and send to server
                 postRequest( "1_Take 3 pictures_0_3", URL);
+                postRequest( "2_Throw away 1 plastic bottle_0_1", URL);
+                postRequest( "3_Throw away 2 beverage cans_0_2", URL);
 
             }
         });
@@ -103,11 +111,6 @@ public class GoalsActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //try {
-                        //Toast.makeText(LoginActivity.this, response.body().string(), Toast.LENGTH_LONG).show();
-                        //} catch (IOException e) {
-                        //e.printStackTrace();
-                        //}
                         try {
                             String reply = response.body().string();
                             // Server will always return information about specified goal, update the page with this info
@@ -115,15 +118,18 @@ public class GoalsActivity extends AppCompatActivity {
                                 switch (parseInt(st.nextToken("_"))) {
                                     case 1:
                                         goal1.setText(st.nextToken());
-                                        progress1.setText(st.nextToken() + "/" + st.nextToken());
+                                        progress1.setText(st.nextToken());
+                                        amount1.setText("/ " + st.nextToken());
                                         break;
                                     case 2:
                                         goal2.setText(st.nextToken());
-                                        progress2.setText(st.nextToken() + "/" + st.nextToken());
+                                        progress2.setText(st.nextToken());
+                                        amount2.setText("/ " + st.nextToken());
                                         break;
                                     case 3:
                                         goal3.setText(st.nextToken());
-                                        progress3.setText(st.nextToken() + "/" + st.nextToken());
+                                        progress3.setText(st.nextToken());
+                                        amount3.setText("/ " + st.nextToken());
                                         break;
                                 }
 
