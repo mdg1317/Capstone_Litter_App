@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    String address = "http://192.168.0.73:5000/";
+    String address = "http://10.17.6.221:5000/";
     String route = "login";
     String URL = address + route;
     private String postBodyString;
