@@ -39,29 +39,14 @@
             android:spinnerMode="dropdown" />
 
         <TableLayout
+            android:id="@+id/leaderboardTable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:stretchColumns="0,1,2">
 
             <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="#FFFFFF">
-
-                <TableRow
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:background="#000000">
-
-                </TableRow>
-            </TableRow>
-
-            <TableRow
+                android:id="@+id/row0"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -69,6 +54,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank0"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -80,6 +66,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/name0"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="1"
@@ -91,6 +78,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/points0"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -103,6 +91,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row1"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -110,6 +99,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -120,6 +110,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="1"
@@ -130,6 +121,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -141,6 +133,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row2"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -148,6 +141,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -158,6 +152,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -168,6 +163,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -179,6 +175,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row3"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -186,6 +183,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -196,6 +194,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -206,6 +205,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -218,6 +218,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row4"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -225,6 +226,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -235,6 +237,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name4"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -245,6 +248,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points4"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -257,6 +261,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row5"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -264,6 +269,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -274,6 +280,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name5"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -284,6 +291,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points5"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -296,6 +304,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row6"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -303,6 +312,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -313,6 +323,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name6"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -323,6 +334,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points6"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -335,6 +347,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row7"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -342,6 +355,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -352,6 +366,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name7"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -362,6 +377,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points7"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -374,6 +390,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row8"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -381,6 +398,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank8"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -391,6 +409,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name8"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -401,6 +420,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points8"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -413,6 +433,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row9"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -420,6 +441,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -430,6 +452,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name9"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -440,6 +463,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points9"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -452,6 +476,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row10"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -459,6 +484,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -469,6 +495,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name10"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -479,6 +506,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points10"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -491,6 +519,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row11"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -498,6 +527,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -508,6 +538,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name11"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -518,6 +549,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points11"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -530,6 +562,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row12"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -537,6 +570,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank12"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -547,6 +581,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name12"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -557,6 +592,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points12"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -569,6 +605,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row13"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -576,6 +613,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank13"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -586,6 +624,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name13"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -596,6 +635,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points13"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -608,6 +648,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row14"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -615,6 +656,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank14"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -625,6 +667,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name14"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -635,6 +678,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points14"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
@@ -647,6 +691,7 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row15"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
@@ -654,6 +699,7 @@
                 android:background="#000000">
 
                 <TextView
+                    android:id="@+id/rank15"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -664,6 +710,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/name15"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="0"
@@ -674,6 +721,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
+                    android:id="@+id/points15"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="2"
