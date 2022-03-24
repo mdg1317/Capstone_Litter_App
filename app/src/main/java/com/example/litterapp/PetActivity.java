@@ -47,30 +47,30 @@ public class PetActivity extends AppCompatActivity {
                 if (foodCount <= 0){
                     updateAllValues();
                     return;
-                } else if (foodCount > 0){
+                } else if (foodCount > 0) {
                     //foodCount--;
                     postRequestPetFood("-1", postURLUpdatePetFood);
                     setFoodCount(foodCount);
-                }
-                // add exp
-                //currentExp += 10;
-                postRequestPetExp("10", postURLUpdatePetExp);
-                expBar.setProgress(currentExp);
 
-                // if max exp, increase level
-                if (currentExp >= requiredExp){
-                    //currentExp = currentExp - requiredExp; // reset curr exp
-                    postRequestPetExp("-" + currentExp, postURLUpdatePetExp);
-                    //level++;
-                    postRequestPetLevel("1", postURLUpdatePetLevel);
-                    updateAllValues();
-                    requiredExp = level * 100;
-                    // update progress bar
-                    setLevel(level);
-                    expBar.setMax(requiredExp);
+                    // add exp
+                    //currentExp += 10;
+                    postRequestPetExp("10", postURLUpdatePetExp);
                     expBar.setProgress(currentExp);
-                }
 
+                    // if max exp, increase level
+                    if (currentExp >= requiredExp) {
+                        //currentExp = currentExp - requiredExp; // reset curr exp
+                        postRequestPetExp("-" + currentExp, postURLUpdatePetExp);
+                        //level++;
+                        postRequestPetLevel("1", postURLUpdatePetLevel);
+                        updateAllValues();
+                        requiredExp = level * 100;
+                        // update progress bar
+                        setLevel(level);
+                        expBar.setMax(requiredExp);
+                        expBar.setProgress(currentExp);
+                    }
+                }
             }
         });
 
