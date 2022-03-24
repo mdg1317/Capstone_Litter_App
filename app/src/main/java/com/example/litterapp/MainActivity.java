@@ -1,36 +1,25 @@
 package com.example.litterapp;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.graphics.drawable.shapes.Shape;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
 
@@ -50,7 +39,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private String postBodyString;
     private MediaType mediaType;
     private RequestBody requestBody;*/
-    private Button connectButton;
+    private Button petButton;
     private ScoreRequests scoreRequestObject = new ScoreRequests();
     private int s;
 
@@ -72,11 +61,12 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             mapFragment.getMapAsync(this);
         }
 
-        connectButton = findViewById(R.id.connectButton);
-        connectButton.setOnClickListener(new View.OnClickListener() {
+        petButton = findViewById(R.id.petButton);
+        Intent petIntent = new Intent(MainActivity.this, PetActivity.class);
+        petButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getScore();
+                startActivity(petIntent);
             }
         });
 
@@ -158,7 +148,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             // Create intents in order to run new activities
             Intent intent1 = new Intent(MainActivity.this, RewardsActivity.class);
             Intent intent2 = new Intent(MainActivity.this, LeaderboardsActivity.class);
-            Intent intent3 = new Intent(MainActivity.this, SettingsActivity.class);
             Intent intent4 = new Intent(MainActivity.this, LoginActivity.class);
             Intent intent5 = new Intent(MainActivity.this, GoalsActivity.class);
 
@@ -169,9 +158,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                     return true;
                 } else if (item.getItemId() == R.id.buttonLeaderboards) {
                     startActivity(intent2);
-                    return true;
-                } else if (item.getItemId() == R.id.buttonSettings) {
-                    startActivity(intent3);
                     return true;
                 } else if (item.getItemId() == R.id.buttonLogout) {
                     startActivity(intent4);
@@ -186,52 +172,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
         popupMenu.show();
     }
-
-    /*private RequestBody buildRequestBody(String msg) {
-        postBodyString = msg;
-        mediaType = MediaType.parse("text/plain");
-        requestBody = RequestBody.create(postBodyString, mediaType);
-        return requestBody;
-    }
-
-    // Send a request to the server, currently doesn't send a POST request
-    private void getRequest(String message, String URL) {
-        RequestBody requestBody = buildRequestBody(message);
-        OkHttpClient okHttpClient = new OkHttpClient();
-        Request request = new Request
-                .Builder()
-                //.post(requestBody)
-                .url(URL)
-                .build();
-        okHttpClient.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(final Call call, final IOException e) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "Something went wrong:" + " " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        call.cancel();
-                    }
-                });
-            }
-
-            @Override
-            public void onResponse(Call call, final Response response) throws IOException {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Toast.makeText(MainActivity.this, response.body().string(), Toast.LENGTH_LONG).show();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-            }
-        });
-    }*/
-    // Score methods (set score and get score from database)
-    // Post parameters: score (how many points to add), URL (where to send the request)
 
     // setScore method:
     // Arguments: score to add (in String format, for example "1")
@@ -248,7 +188,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         return 0;
     }
 
-    String address = "http://10.17.133.10:5000/";
+    ConnectionInfo connectInfo = new ConnectionInfo();
+    String address = connectInfo.getAddress();
     String postRoute = "addscore";
     String getRoute = "getscore";
     String postURL = address + postRoute;

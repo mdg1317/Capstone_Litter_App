@@ -13,10 +13,6 @@
         android:id="@+id/buttonLeaderboards"
         android:text="Leaderboards" />
     <item
-        android:title="Settings"
-        android:id="@+id/buttonSettings"
-        android:text="Settings" />
-    <item
         android:title="Log Out"
         android:id="@+id/buttonLogout"
         android:text="Log Out" />
