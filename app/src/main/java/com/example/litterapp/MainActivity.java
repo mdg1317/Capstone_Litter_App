@@ -248,7 +248,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         return 0;
     }
 
-    String address = "http://192.168.1.34:5000/";
+    String address = "http://10.17.133.10:5000/";
     String postRoute = "addscore";
     String getRoute = "getscore";
     String postURL = address + postRoute;

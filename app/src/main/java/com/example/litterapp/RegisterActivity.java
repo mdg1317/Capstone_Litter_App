@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    String address = "http://192.168.1.34:5000/";
+    String address = "http://10.17.133.10:5000/";
     String route = "adduser";
     String URL = address + route;
     private String postBodyString;

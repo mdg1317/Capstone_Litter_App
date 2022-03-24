@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -33,6 +35,11 @@ public class LabelActivity extends AppCompatActivity {
     ImageView selectedImage;
     ScoreRequests scoreRequestObject = new ScoreRequests();
     private int s;
+    RadioButton cigButton;
+    RadioButton bottleButton;
+    RadioButton wrapperButton;
+    RadioButton bagButton;
+    RadioButton canButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +49,11 @@ public class LabelActivity extends AppCompatActivity {
         Button buttonBack = findViewById(R.id.button_back);
         Button buttonFinish = findViewById(R.id.button_finish);
         selectedImage = findViewById(R.id.image_display);
+        cigButton = findViewById(R.id.radioCigButts);
+        bottleButton = findViewById(R.id.radioPlasticBottles);
+        wrapperButton = findViewById(R.id.radioFoodWrapper);
+        bagButton = findViewById(R.id.radioPlasticBag);
+        canButton = findViewById(R.id.radioBevCan);
 
         // Open camera when label screen is reached, or when the back button is pressed
         openCamera();
@@ -55,7 +67,19 @@ public class LabelActivity extends AppCompatActivity {
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addScore("1");
+                if(cigButton.isChecked()){
+                    addScore("1");
+                } else if(bottleButton.isChecked()){
+                    addScore("2");
+                } else if(wrapperButton.isChecked()) {
+                    addScore("3");
+                } else if(bagButton.isChecked()) {
+                    addScore("4");
+                } else if(canButton.isChecked()) {
+                    addScore("5");
+                } else {
+                    addScore("0");
+                }
                 finish();
             }
         });
@@ -103,7 +127,7 @@ public class LabelActivity extends AppCompatActivity {
         return s;
     }
 
-    String address = "http://192.168.1.34:5000/";
+    String address = "http://10.17.133.10:5000/";
     String postRoute = "addscore";
     String getRoute = "getscore";
     String postURL = address + postRoute;
