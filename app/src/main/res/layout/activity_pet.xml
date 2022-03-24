@@ -17,25 +17,32 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/exp_textview"
+                android:id="@+id/levelView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
-                android:text="XP"
+                android:text="LVL 1"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textIsSelectable="false" />
 
             <ProgressBar
-                android:id="@+id/progressBar"
+                android:id="@+id/expBar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="90"
                 android:paddingLeft="5dp"
-                android:paddingTop="10dp"
+                android:paddingTop="15dp"
                 android:paddingRight="10dp"
                 android:progress="30" />
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Back" />
         </LinearLayout>
 
         <ImageView
@@ -52,42 +59,12 @@
             android:layout_weight="40"
             android:orientation="vertical">
 
-            <RadioGroup
+            <TextView
+                android:id="@+id/food_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="40"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Cigarette Butt" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Plastic Bottle" />
-
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Food Wrapper" />
-
-                <RadioButton
-                    android:id="@+id/radioButton4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Plastic Bag" />
-
-                <RadioButton
-                    android:id="@+id/radioButton5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Beverage Can" />
-            </RadioGroup>
+                android:layout_weight="50"
+                android:text="Remaining food: 1" />
 
             <Button
                 android:id="@+id/feed_button"

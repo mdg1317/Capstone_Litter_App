@@ -88,11 +88,12 @@ public class LabelActivity extends AppCompatActivity {
     // Score methods (set score and get score from database)
     // Post parameters: score (how many points to add), URL (where to send the request)
 
-    // setScore method:
+    // setScore method: adds the arg value to the score and current pet food count
     // Arguments: score to add (in String format, for example "1")
     // Returns: NA
     public void addScore(String score) {
         postRequest(score, postURL);
+        postRequestUpdatePetFood(score, postURLUpdatePetFood);
     }
 
     // getScore method:
@@ -103,11 +104,14 @@ public class LabelActivity extends AppCompatActivity {
         return s;
     }
 
-    String address = "http://192.168.1.34:5000/";
+    ConnectionInfo connectInfo = new ConnectionInfo();
+    String address = connectInfo.getAddress();
     String postRoute = "addscore";
+    String postRouteUpdatePetFood = "updatepetfood";
     String getRoute = "getscore";
     String postURL = address + postRoute;
     String getURL = address + getRoute;
+    String postURLUpdatePetFood = address + postRouteUpdatePetFood;
     private String postBodyString;
     private MediaType mediaType;
     private RequestBody requestBody;
@@ -149,6 +153,38 @@ public class LabelActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                    }
+                });
+            }
+        });
+    }
+
+    // Send post request to update/add to the score
+    private void postRequestUpdatePetFood(String value, String URL) {
+        RequestBody requestBody = buildRequestBody(value);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request
+                .Builder()
+                .post(requestBody)
+                .url(URL)
+                .build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(final Call call, final IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        call.cancel();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
                     }
                 });
             }

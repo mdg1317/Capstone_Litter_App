@@ -52,7 +52,8 @@ public class ScoreRequests extends AppCompatActivity {
         return user;
     }
 
-    String address = "http://192.168.1.34:5000/";
+    ConnectionInfo connectInfo = new ConnectionInfo();
+    String address = connectInfo.getAddress();
     String postRoute = "addscore";
     String getRoute = "getscore";
     String postURL = address + postRoute;
