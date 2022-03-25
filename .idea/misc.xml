@@ -14,10 +14,10 @@
         <entry key="..\:/CapstoneProject/Capstone_Litter_App/app/src/main/res/layout/activity_rewards.xml" value="0.20520833333333333" />
         <entry key="..\:/CapstoneProject/Capstone_Litter_App/app/src/main/res/layout/activity_settings.xml" value="0.20520833333333333" />
         <entry key="..\:/CapstoneProject/Capstone_Litter_App/app/src/main/res/menu/popup_menu.xml" value="0.20520833333333333" />
-        <entry key="..\:/Git/Capstone_Litter_App/app/src/main/res/layout/activity_goals.xml" value="0.33" />
         <entry key="..\:/Git/Capstone_Litter_App/app/src/main/res/layout/activity_label.xml" value="0.21927083333333333" />
-        <entry key="..\:/Git/Capstone_Litter_App/app/src/main/res/layout/activity_login.xml" value="0.18020833333333333" />
-        <entry key="..\:/Git/Capstone_Litter_App/app/src/main/res/layout/activity_main.xml" value="0.184375" />
+        <entry key="..\:/Users/chenz22/Documents/GitHub/Capstone_Litter_App/app/src/main/res/layout/activity_goals.xml" value="0.18958333333333333" />
+        <entry key="..\:/Users/chenz22/Documents/GitHub/Capstone_Litter_App/app/src/main/res/layout/activity_label.xml" value="0.22" />
+        <entry key="..\:/Users/chenz22/Documents/GitHub/Capstone_Litter_App/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/crawf/StudioProjects/Capstone_Litter_App/app/src/main/res/drawable/gradient_drawable.xml" value="0.26481481481481484" />
         <entry key="..\:/Users/crawf/StudioProjects/Capstone_Litter_App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/crawf/StudioProjects/Capstone_Litter_App/app/src/main/res/drawable/textured_set_drawable.xml" value="0.20555555555555555" />
@@ -29,31 +29,20 @@
         <entry key="..\:/Users/crawf/StudioProjects/Capstone_Litter_App/app/src/main/res/menu/popup_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/crawf/StudioProjects/Capstone_Litter_App/app/src/main/res/menu/region_menu.xml" value="2.0107142857142857" />
         <entry key="..\:/Users/crawf/StudioProjects/Capstone_Litter_App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
-        <entry key="..\:/Users/danie/Capstone/Project1/Capstone_Litter_App/app/src/main/res/layout/activity_goals.xml" value="0.3625" />
-        <entry key="..\:/Users/danie/Capstone/Project1/Capstone_Litter_App/app/src/main/res/layout/activity_label.xml" value="0.24818840579710144" />
-        <entry key="..\:/Users/danie/Capstone/Project1/Capstone_Litter_App/app/src/main/res/layout/activity_main.xml" value="0.3625" />
-        <entry key="..\:/Users/danie/Capstone/Project1/Capstone_Litter_App/app/src/main/res/layout/activity_pet.xml" value="0.33" />
-        <entry key="..\:/Users/danie/Capstone/Project1/Capstone_Litter_App/app/src/main/res/layout/activity_register.xml" value="0.20260416666666667" />
-        <entry key="..\:/Users/danie/Capstone/Project1/Capstone_Litter_App/app/src/main/res/menu/popup_menu.xml" value="0.3625" />
         <entry key="..\:/Users/danie/Documents/GitHub/Capstone_Litter_App/app/src/main/res/layout/activity_rewards.xml" value="0.1" />
         <entry key="..\:/Users/danie/Documents/GitHub/Capstone_Litter_App/app/src/main/res/menu/popup_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/danie/Documents/GitHub/Capstone_Litter_App/app/src/main/res/xml/network_security_config.xml" value="0.1" />
         <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/drawable/gradientmap.xml" value="0.17604166666666668" />
-        <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/layout/activity_goals.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/layout/activity_label.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/layout/activity_leaderboards.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/layout/activity_login.xml" value="0.2977777777777778" />
         <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/layout/activity_main.xml" value="0.30416666666666664" />
-        <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/layout/activity_rewards.xml" value="0.30416666666666664" />
-        <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/layout/activity_settings.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/layout/gradientmap.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/layout/gradientsky.xml" value="0.30416666666666664" />
-        <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/menu/popup_menu.xml" value="0.30416666666666664" />
-        <entry key="..\:/Users/matth/Documents/UP/F21/Capstone/Capstone_Litter_App/app/src/main/res/menu/popup_menu_label.xml" value="0.30416666666666664" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

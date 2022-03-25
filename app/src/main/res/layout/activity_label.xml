@@ -38,28 +38,28 @@
                 android:text="Cigarette Butt" />
 
             <RadioButton
-                android:id="@+id/radioPlasticBottles"
+                android:id="@+id/radioBottles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Plastic Bottle" />
+                android:text="Bottles" />
 
             <RadioButton
-                android:id="@+id/radioFoodWrapper"
+                android:id="@+id/radioWrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Food Wrapper" />
+                android:text="Wrapper" />
 
             <RadioButton
-                android:id="@+id/radioPlasticBag"
+                android:id="@+id/radioBag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Plastic Bag" />
+                android:text="Bag" />
 
             <RadioButton
-                android:id="@+id/radioBevCan"
+                android:id="@+id/radioCan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Beverage Can" />
+                android:text="Can" />
 
             <RadioButton
                 android:id="@+id/radioOther"

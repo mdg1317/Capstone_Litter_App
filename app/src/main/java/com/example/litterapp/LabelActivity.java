@@ -15,8 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -50,10 +48,10 @@ public class LabelActivity extends AppCompatActivity {
         Button buttonFinish = findViewById(R.id.button_finish);
         selectedImage = findViewById(R.id.image_display);
         cigButton = findViewById(R.id.radioCigButts);
-        bottleButton = findViewById(R.id.radioPlasticBottles);
-        wrapperButton = findViewById(R.id.radioFoodWrapper);
-        bagButton = findViewById(R.id.radioPlasticBag);
-        canButton = findViewById(R.id.radioBevCan);
+        bottleButton = findViewById(R.id.radioBottles);
+        wrapperButton = findViewById(R.id.radioWrapper);
+        bagButton = findViewById(R.id.radioBag);
+        canButton = findViewById(R.id.radioCan);
 
         // Open camera when label screen is reached, or when the back button is pressed
         openCamera();
