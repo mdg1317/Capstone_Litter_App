@@ -22,6 +22,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import java.lang.Math;
+
 public class GoalsActivity extends AppCompatActivity {
 
     TextView goal1;
@@ -78,10 +80,9 @@ public class GoalsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Generate a new goal and send to server
-                postRequest( "1_Take 3 pictures_0_3", URL);
-                postRequest( "2_Throw away 1 plastic bottle_0_1", URL);
-                postRequest( "3_Throw away 2 beverage cans_0_2", URL);
-
+                postRequest( "1_" + generateGoal(), URL);
+                postRequest( "2_" + generateGoal(), URL);
+                postRequest( "3_" + generateGoal(), URL);
             }
         });
     }
@@ -142,5 +143,28 @@ public class GoalsActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private String generateGoal() {
+        int amount = (int)(Math.random() * 4) + 1;
+        int task = (int)(Math.random() * 6);
+        switch (task) {
+            case 0: // Take Pictures
+                return "Take " + amount + " Pictures_0_" + amount;
+            case 1: // Feed your pet
+                return "Feed your pet " + amount + " times_0_" + amount;
+            case 2: // Discard Butts/ Bottles/ Wrappers/ Bag/ Can
+                return "Discard " + amount + " butts_0_" + amount;
+            case 3:
+                return "Discard " + amount + " bottles_0_" + amount;
+            case 4:
+                return "Discard " + amount + " wrappers_0_" + amount;
+            case 5:
+                return "Discard " + amount + " bags_0_" + amount;
+            case 6:
+                return "Discard " + amount + " cans_0_" + amount;
+            default:
+                return "Error";
+        }
     }
 }
