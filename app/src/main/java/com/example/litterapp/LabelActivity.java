@@ -71,9 +71,9 @@ public class LabelActivity extends AppCompatActivity {
         });
 
         // Updates local variables of what goals are
-        //postRequestGoals("1_get", address + "updateGoal");
-        //postRequestGoals("2_get", address + "updateGoal");
-        //postRequestGoals("3_get", address + "updateGoal");
+        postRequestGoals("1_get", address + "updateGoal");
+        postRequestGoals("2_get", address + "updateGoal");
+        postRequestGoals("3_get", address + "updateGoal");
 
 
         buttonFinish.setOnClickListener(new View.OnClickListener() {

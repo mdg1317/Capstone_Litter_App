@@ -219,7 +219,7 @@ public class LeaderboardsActivity extends AppCompatActivity {
                 if (comp == 0)
                     return 1;
                 else
-                    return comp;
+                    return -comp;
             }
 
         };
