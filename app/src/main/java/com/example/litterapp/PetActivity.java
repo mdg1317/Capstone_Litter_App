@@ -45,8 +45,7 @@ public class PetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (foodCount <= 0){
-                    updateAllValues();
-                    return;
+                    // do nothing
                 } else if (foodCount > 0) {
                     //foodCount--;
                     postRequestPetFood("-1", postURLUpdatePetFood);
@@ -176,6 +175,7 @@ public class PetActivity extends AppCompatActivity {
                         // set values from database
                         try {
                             updateLevel(Integer.parseInt(response.body().string()));
+                            setLevel(level);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -216,6 +216,11 @@ public class PetActivity extends AppCompatActivity {
                         // set values from database
                         try {
                             updateExp(Integer.parseInt(response.body().string()));
+                            ProgressBar expBar = (ProgressBar) findViewById(R.id.expBar);
+                            requiredExp = level * 100;
+                            expBar.setMax(requiredExp);
+                            expBar.setProgress(currentExp);
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -256,6 +261,7 @@ public class PetActivity extends AppCompatActivity {
                         // set values from database
                         try {
                             updateFood(Integer.parseInt(response.body().string()));
+                            setFoodCount(foodCount);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

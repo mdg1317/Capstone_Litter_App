@@ -70,12 +70,12 @@ public class LabelActivity extends AppCompatActivity {
         });
 
         // Updates local variables of what goals are
-        postRequestGoals("1_get", address + "updateGoal");
-        postRequestGoals("2_get", address + "updateGoal");
-        postRequestGoals("3_get", address + "updateGoal");
+        //postRequestGoals("1_get", address + "updateGoal");
+        //postRequestGoals("2_get", address + "updateGoal");
+        //postRequestGoals("3_get", address + "updateGoal");
 
         // Simplifies each goal locally to one word
-        for (int i = 0; i < NUM_GOALS; i ++) {
+        /*for (int i = 0; i < NUM_GOALS; i ++) {
             if (goal[i].contains("picture")) {
                 goal[i] = "picture";
             }
@@ -94,7 +94,7 @@ public class LabelActivity extends AppCompatActivity {
             if (goal[i].contains("cans")) {
                 goal[i] = "cans";
             }
-        }
+        }*/
 
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
