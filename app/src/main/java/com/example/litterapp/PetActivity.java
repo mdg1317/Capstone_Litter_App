@@ -151,6 +151,9 @@ public class PetActivity extends AppCompatActivity {
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request
                 .Builder()
+                .header("Content-Type", "text/plain")
+                .header("Accept", "*/*")
+                .header("Connection", "keep-alive")
                 .post(requestBody)
                 .url(URL)
                 .build();
@@ -188,6 +191,9 @@ public class PetActivity extends AppCompatActivity {
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request
                 .Builder()
+                .header("Content-Type", "text/plain")
+                .header("Accept", "*/*")
+                .header("Connection", "keep-alive")
                 .post(requestBody)
                 .url(URL)
                 .build();
@@ -225,6 +231,9 @@ public class PetActivity extends AppCompatActivity {
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request
                 .Builder()
+                .header("Content-Type", "text/plain")
+                .header("Accept", "*/*")
+                .header("Connection", "keep-alive")
                 .post(requestBody)
                 .url(URL)
                 .build();
