@@ -1,5 +1,7 @@
 package com.example.litterapp;
 
+import static java.lang.Integer.parseInt;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -17,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 
 import java.io.IOException;
+import java.util.StringTokenizer;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -38,6 +41,10 @@ public class LabelActivity extends AppCompatActivity {
     RadioButton wrapperButton;
     RadioButton bagButton;
     RadioButton canButton;
+    int NUM_GOALS = 3;
+
+    // Goals
+    String goal[] = new String[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,21 +69,78 @@ public class LabelActivity extends AppCompatActivity {
             }
         });
 
+        // Updates local variables of what goals are
+        postRequestGoals("1_get", address + "updateGoal");
+        postRequestGoals("2_get", address + "updateGoal");
+        postRequestGoals("3_get", address + "updateGoal");
+
+        // Simplifies each goal locally to one word
+        for (int i = 0; i < NUM_GOALS; i ++) {
+            if (goal[i].contains("picture")) {
+                goal[i] = "picture";
+            }
+            if (goal[i].contains("butt")) {
+                goal[i] = "butt";
+            }
+            if (goal[i].contains("bottle")) {
+                goal[i] = "bottle";
+            }
+            if (goal[i].contains("wrapper")) {
+                goal[i] = "wrapper";
+            }
+            if (goal[i].contains("bags")) {
+                goal[i] = "bags";
+            }
+            if (goal[i].contains("cans")) {
+                goal[i] = "cans";
+            }
+        }
+
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(cigButton.isChecked()){
                     addScore("1");
+                    for (int i = 0; i < NUM_GOALS; i ++) {
+                        if (goal[i].equals("butt")) {
+                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        }
+                    }
                 } else if(bottleButton.isChecked()){
                     addScore("2");
+                    for (int i = 0; i < NUM_GOALS; i ++) {
+                        if (goal[i].equals("bottle")) {
+                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        }
+                    }
                 } else if(wrapperButton.isChecked()) {
                     addScore("3");
+                    for (int i = 0; i < NUM_GOALS; i ++) {
+                        if (goal[i].equals("wrapper")) {
+                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        }
+                    }
                 } else if(bagButton.isChecked()) {
                     addScore("4");
+                    for (int i = 0; i < NUM_GOALS; i ++) {
+                        if (goal[i].equals("bag")) {
+                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        }
+                    }
                 } else if(canButton.isChecked()) {
                     addScore("5");
+                    for (int i = 0; i < NUM_GOALS; i ++) {
+                        if (goal[i].equals("can")) {
+                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        }
+                    }
                 } else {
                     addScore("0");
+                    for (int i = 0; i < NUM_GOALS; i ++) {
+                        if (goal[i].equals("picture")) {
+                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        }
+                    }
                 }
                 finish();
             }
@@ -207,6 +271,91 @@ public class LabelActivity extends AppCompatActivity {
                     @Override
                     public void run() {
 
+                    }
+                });
+            }
+        });
+    }
+
+    // Send post request to update/add to the score
+    private void postRequestGoals(String customString, String URL) {
+        RequestBody requestBody = buildRequestBody(customString);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request
+                .Builder()
+                .post(requestBody)
+                .url(URL)
+                .build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(final Call call, final IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        call.cancel();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            String reply = response.body().string();
+                            StringTokenizer st = new StringTokenizer(reply);
+                            switch (parseInt(st.nextToken("_"))) {
+                                case 1:
+                                    goal[0] = st.nextToken();
+                                    break;
+                                case 2:
+                                    goal[1] = st.nextToken();
+                                    break;
+                                case 3:
+                                    goal[2]  = st.nextToken();
+                                    break;
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    // Send post request to update/add to the score
+    private void postRequestGoalsUpdate(String customString, String URL) {
+        RequestBody requestBody = buildRequestBody(customString);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request
+                .Builder()
+                .post(requestBody)
+                .url(URL)
+                .build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(final Call call, final IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        call.cancel();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            String reply = response.body().string();
+                            StringTokenizer st = new StringTokenizer(reply);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
             }

@@ -147,22 +147,22 @@ public class GoalsActivity extends AppCompatActivity {
 
     private String generateGoal() {
         int amount = (int)(Math.random() * 4) + 1;
-        int task = (int)(Math.random() * 6);
+        int task = (int)(Math.random() * 5);
         switch (task) {
             case 0: // Take Pictures
-                return "Take " + amount + " Pictures_0_" + amount;
-            case 1: // Feed your pet
-                return "Feed your pet " + amount + " times_0_" + amount;
-            case 2: // Discard Butts/ Bottles/ Wrappers/ Bag/ Can
+                return "Take " + amount + " pictures_0_" + amount;
+            case 1: // Discard Butts/ Bottles/ Wrappers/ Bag/ Can
                 return "Discard " + amount + " butts_0_" + amount;
-            case 3:
+            case 2:
                 return "Discard " + amount + " bottles_0_" + amount;
-            case 4:
+            case 3:
                 return "Discard " + amount + " wrappers_0_" + amount;
-            case 5:
+            case 4:
                 return "Discard " + amount + " bags_0_" + amount;
-            case 6:
+            case 5:
                 return "Discard " + amount + " cans_0_" + amount;
+//            case 6: // Feed your pet
+//                return "Feed your pet " + amount + " times_0_" + amount;
             default:
                 return "Error";
         }
