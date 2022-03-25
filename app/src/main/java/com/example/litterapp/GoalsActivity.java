@@ -36,7 +36,8 @@ public class GoalsActivity extends AppCompatActivity {
     TextView amount2;
     TextView amount3;
 
-    String address = "http://192.168.0.73:5000/";
+    ConnectionInfo connectInfo = new ConnectionInfo();
+    String address = connectInfo.getAddress();
     String route = "updateGoal";
     String URL = address + route;
     private String postBodyString;
@@ -66,6 +67,10 @@ public class GoalsActivity extends AppCompatActivity {
         amount1 = findViewById(R.id.amount1);
         amount2 = findViewById(R.id.amount2);
         amount3 = findViewById(R.id.amount3);
+
+        postRequest( "1_get", URL);
+        postRequest( "2_get", URL);
+        postRequest( "3_get", URL);
 
         // transition to menu screen when clicking on menu button
         goalsButtonBack.setOnClickListener(new View.OnClickListener() {
