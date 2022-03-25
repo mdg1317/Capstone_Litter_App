@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -44,7 +45,7 @@ public class LabelActivity extends AppCompatActivity {
     int NUM_GOALS = 3;
 
     // Goals
-    String goal[] = new String[2];
+    String goal[] = new String[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,73 +75,53 @@ public class LabelActivity extends AppCompatActivity {
         postRequestGoals("2_get", address + "updateGoal");
         postRequestGoals("3_get", address + "updateGoal");
 
-        // Simplifies each goal locally to one word
-        for (int i = 0; i < NUM_GOALS; i ++) {
-            if (goal[i].contains("picture")) {
-                goal[i] = "picture";
-            }
-            if (goal[i].contains("butt")) {
-                goal[i] = "butt";
-            }
-            if (goal[i].contains("bottle")) {
-                goal[i] = "bottle";
-            }
-            if (goal[i].contains("wrapper")) {
-                goal[i] = "wrapper";
-            }
-            if (goal[i].contains("bags")) {
-                goal[i] = "bags";
-            }
-            if (goal[i].contains("cans")) {
-                goal[i] = "cans";
-            }
-        }
 
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for (int i = 0; i < NUM_GOALS; i ++) {
+                    if (goal[i].contains("picture")) {
+                        postRequestGoalsUpdate((i+1) + "_add_1", address + "updateGoal");
+                    }
+                }
                 if(cigButton.isChecked()){
                     addScore("1");
                     for (int i = 0; i < NUM_GOALS; i ++) {
-                        if (goal[i].equals("butt")) {
-                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        if (goal[i].contains("butt")) {
+                            postRequestGoalsUpdate((i+1) + "_add_1", address + "updateGoal");
                         }
                     }
                 } else if(bottleButton.isChecked()){
                     addScore("2");
                     for (int i = 0; i < NUM_GOALS; i ++) {
-                        if (goal[i].equals("bottle")) {
-                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        if (goal[i].contains("bottle")) {
+                            postRequestGoalsUpdate((i+1) + "_add_1", address + "updateGoal");
                         }
                     }
                 } else if(wrapperButton.isChecked()) {
                     addScore("3");
                     for (int i = 0; i < NUM_GOALS; i ++) {
-                        if (goal[i].equals("wrapper")) {
-                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        if (goal[i].contains("wrapper")) {
+                            postRequestGoalsUpdate((i+1) + "_add_1", address + "updateGoal");
                         }
                     }
                 } else if(bagButton.isChecked()) {
                     addScore("4");
                     for (int i = 0; i < NUM_GOALS; i ++) {
-                        if (goal[i].equals("bag")) {
-                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        if (goal[i].contains("bag")) {
+                            Log.d("goal: ", "Bag");
+                            postRequestGoalsUpdate((i+1) + "_add_1", address + "updateGoal");
                         }
                     }
                 } else if(canButton.isChecked()) {
                     addScore("5");
                     for (int i = 0; i < NUM_GOALS; i ++) {
-                        if (goal[i].equals("can")) {
-                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
+                        if (goal[i].contains("can")) {
+                            postRequestGoalsUpdate((i+1) + "_add_1", address + "updateGoal");
                         }
                     }
                 } else {
                     addScore("0");
-                    for (int i = 0; i < NUM_GOALS; i ++) {
-                        if (goal[i].equals("picture")) {
-                            postRequestGoalsUpdate(goal[i] + "_add_1", address + "updateGoal");
-                        }
-                    }
                 }
                 finish();
             }
@@ -308,12 +289,15 @@ public class LabelActivity extends AppCompatActivity {
                             switch (parseInt(st.nextToken("_"))) {
                                 case 1:
                                     goal[0] = st.nextToken();
+                                    Log.d("goal[0]: ", goal[0]);
                                     break;
                                 case 2:
                                     goal[1] = st.nextToken();
+                                    Log.d("goal[1]: ", goal[1]);
                                     break;
                                 case 3:
-                                    goal[2]  = st.nextToken();
+                                    goal[2] = st.nextToken();
+                                    Log.d("goal[2]: ", goal[2]);
                                     break;
                             }
                         } catch (IOException e) {
