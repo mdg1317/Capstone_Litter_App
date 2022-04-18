@@ -36,6 +36,10 @@ public class GoalsActivity extends AppCompatActivity {
     TextView amount1;
     TextView amount2;
     TextView amount3;
+    Button button1;
+    Button button2;
+    Button button3;
+
 
     ConnectionInfo connectInfo = new ConnectionInfo();
     String address = connectInfo.getAddress();
@@ -68,6 +72,9 @@ public class GoalsActivity extends AppCompatActivity {
         amount1 = findViewById(R.id.amount1);
         amount2 = findViewById(R.id.amount2);
         amount3 = findViewById(R.id.amount3);
+        button1 = findViewById(R.id.button_collect1);
+        button2 = findViewById(R.id.button_collect2);
+        button3 = findViewById(R.id.button_collect3);
 
         postRequest( "1_get", URL);
         postRequest( "2_get", URL);
@@ -89,6 +96,33 @@ public class GoalsActivity extends AppCompatActivity {
                 postRequest( "1_" + generateGoal(), URL);
                 postRequest( "2_" + generateGoal(), URL);
                 postRequest( "3_" + generateGoal(), URL);
+            }
+        });
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Generate a new goal and send to server
+                postRequest( "1_" + generateGoal(), URL);
+                postRequestScore("10", connectInfo.getAddress() + "addscore");
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Generate a new goal and send to server
+                postRequest( "2_" + generateGoal(), URL);
+                postRequestScore("10", connectInfo.getAddress() + "addscore");
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Generate a new goal and send to server
+                postRequest( "3_" + generateGoal(), URL);
+                postRequestScore("10", connectInfo.getAddress() + "addscore");
             }
         });
     }
@@ -121,24 +155,56 @@ public class GoalsActivity extends AppCompatActivity {
                         try {
                             String reply = response.body().string();
                             // Server will always return information about specified goal, update the page with this info
-                            StringTokenizer st = new StringTokenizer(reply);
-                                switch (parseInt(st.nextToken("_"))) {
-                                    case 1:
-                                        goal1.setText(st.nextToken());
-                                        progress1.setText(st.nextToken());
-                                        amount1.setText("/ " + st.nextToken());
-                                        break;
-                                    case 2:
-                                        goal2.setText(st.nextToken());
-                                        progress2.setText(st.nextToken());
-                                        amount2.setText("/ " + st.nextToken());
-                                        break;
-                                    case 3:
-                                        goal3.setText(st.nextToken());
-                                        progress3.setText(st.nextToken());
-                                        amount3.setText("/ " + st.nextToken());
-                                        break;
-                                }
+                            StringTokenizer st = new StringTokenizer(reply,"_");
+                            int goalNo = Integer.parseInt(st.nextToken());
+                            String returnGoal = st.nextToken();
+                            int returnProgress = Integer.parseInt(st.nextToken());
+                            int returnAmount = Integer.parseInt(st.nextToken());
+                            boolean enableButton = (returnProgress >= returnAmount);
+                            switch (goalNo) {
+                                case 1:
+                                    goal1.setText(returnGoal);
+                                    progress1.setText("" + returnProgress);
+                                    amount1.setText("/ " + returnAmount);
+                                    if (enableButton) {
+                                        button1.setVisibility(View.VISIBLE);
+                                        progress1.setVisibility(View.GONE);
+                                        amount1.setVisibility(View.GONE);
+                                    } else {
+                                        button1.setVisibility(View.GONE);
+                                        progress1.setVisibility(View.VISIBLE);
+                                        amount1.setVisibility(View.VISIBLE);
+                                    }
+                                    break;
+                                case 2:
+                                    goal2.setText(returnGoal);
+                                    progress2.setText("" + returnProgress);
+                                    amount2.setText("/ " + returnAmount);
+                                    if (enableButton) {
+                                        button2.setVisibility(View.VISIBLE);
+                                        progress2.setVisibility(View.GONE);
+                                        amount2.setVisibility(View.GONE);
+                                    } else {
+                                        button2.setVisibility(View.GONE);
+                                        progress2.setVisibility(View.VISIBLE);
+                                        amount2.setVisibility(View.VISIBLE);
+                                    }
+                                    break;
+                                case 3:
+                                    goal3.setText(returnGoal);
+                                    progress3.setText("" + returnProgress);
+                                    amount3.setText("/ " + returnAmount);
+                                    if (enableButton) {
+                                        button3.setVisibility(View.VISIBLE);
+                                        progress3.setVisibility(View.GONE);
+                                        amount3.setVisibility(View.GONE);
+                                    } else {
+                                        button3.setVisibility(View.GONE);
+                                        progress3.setVisibility(View.VISIBLE);
+                                        amount3.setVisibility(View.VISIBLE);
+                                    }
+                                    break;
+                            }
 
 
                         } catch (IOException e) {
@@ -172,5 +238,41 @@ public class GoalsActivity extends AppCompatActivity {
             default:
                 return "Error";
         }
+    }
+
+    // Send post request to update/add to the score
+    private void postRequestScore(String score, String URL) {
+        RequestBody requestBody = buildRequestBody(score);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request
+                .Builder()
+                .post(requestBody)
+                .url(URL)
+                .build();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(final Call call, final IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        call.cancel();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            int s = Integer.parseInt(response.body().string());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
     }
 }

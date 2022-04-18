@@ -54,6 +54,13 @@
                     android:text="Throw away 10 cigarette butts"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
+                <Button
+                    android:id="@+id/button_collect1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Collect"
+                    android:visibility="gone" />
+
                 <TextView
                     android:id="@+id/progress1"
                     android:layout_width="wrap_content"
@@ -88,6 +95,13 @@
                     android:text=" Throw away 10 plastic bottles"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
+                <Button
+                    android:id="@+id/button_collect2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Collect"
+                    android:visibility="gone" />
+
                 <TextView
                     android:id="@+id/progress2"
                     android:layout_width="wrap_content"
@@ -119,6 +133,13 @@
                     android:gravity="center"
                     android:text=" Throw away 10 beverage cans"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                <Button
+                    android:id="@+id/button_collect3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Collect"
+                    tools:visibility="gone" />
 
                 <TextView
                     android:id="@+id/progress3"
