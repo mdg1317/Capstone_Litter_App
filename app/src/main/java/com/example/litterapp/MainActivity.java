@@ -2,17 +2,26 @@ package com.example.litterapp;
 
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+//import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -31,7 +40,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MainActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
 
     //private FusedLocationProviderClient fusedLocationClient;
 
@@ -42,6 +51,12 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private Button petButton;
     private ScoreRequests scoreRequestObject = new ScoreRequests();
     private int s;
+
+    private LocationManager locationManager;
+    private Location location;
+    protected Context context;
+    private double myLat = 0;
+    private double myLong = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +69,22 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         //TextView coordDisplay = findViewById(R.id.coordDisplay);
 
         //fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 250, 10, this);
+        //location = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
+        //onLocationChanged(location);
+
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
             .findFragmentById(R.id.map);
@@ -122,21 +153,57 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
+    public void onLocationChanged(Location location) {
+        myLat = location.getLatitude();
+        myLong = location.getLongitude();
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        //Log.d("Latitude","disable");
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        //Log.d("Latitude","enable");
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        //Log.d("Latitude","status");
+    }
+
+    @Override
     public void onMapReady(GoogleMap map) {
         map.getUiSettings().setCompassEnabled(true);
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
         map.setBuildingsEnabled(false);
-        LatLng myPosition = new LatLng(45.575856, -122.730537);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        map.setMyLocationEnabled(true);
+        location = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
+        onLocationChanged(location);
+        LatLng myPosition = new LatLng(myLat, myLong);
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(myPosition)
-                .zoom(120)
-                .tilt(67.5f)
-                .bearing(314)
+                .zoom(100)
+                //.tilt(67.5f)
+                //.bearing(314)
                 .build();
+        Log.d("currPos", myLat + ", " + myLong);
         map.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-        map.addMarker(new MarkerOptions()
+        /*map.addMarker(new MarkerOptions()
                 .position(myPosition)
-                .title("My Position"));
+                .title("My Position"));*/
     }
 
     // showMenu: displays a popup menu when the menu button is tapped
