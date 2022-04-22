@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         Button loginButton = findViewById(R.id.buttonLogin);
         Button guestButton = findViewById(R.id.buttonGuest);
         Button registerButton = findViewById(R.id.buttonCreateUser);
-        usernameTest = findViewById(R.id.test_username);
+        //usernameTest = findViewById(R.id.test_username);
 
         // Checks database for login info
         loginButton.setOnClickListener(new View.OnClickListener() {

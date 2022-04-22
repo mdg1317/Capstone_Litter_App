@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LitterApp</string>
+    <string name="app_name">Pickup Pets</string>
     <string name="coords">0, 0</string>
     <string name="title_activity_login">LoginActivity</string>
     <!-- Strings used for fragments for navigation -->

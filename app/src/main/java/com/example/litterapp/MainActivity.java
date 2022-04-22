@@ -195,7 +195,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng myPosition = new LatLng(myLat, myLong);
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(myPosition)
-                .zoom(100)
+                .zoom(50)
                 //.tilt(67.5f)
                 //.bearing(314)
                 .build();

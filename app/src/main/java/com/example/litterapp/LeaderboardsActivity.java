@@ -68,12 +68,12 @@ public class LeaderboardsActivity extends AppCompatActivity {
         name1 = findViewById(R.id.name1);
         table = findViewById(R.id.leaderboardTable);
         //get spinner from xml file.
-        Spinner dropdown = findViewById(R.id.spinner1);
+        //Spinner dropdown = findViewById(R.id.spinner1);
         //create list of regions for spinner
         String[] items = new String[]{"Americas", "Asia", "Europe", "Global", "United States"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         //set the spinners adapter to the previously created one.
-        dropdown.setAdapter(adapter);
+        //dropdown.setAdapter(adapter);
 
         String myUsername = "Hey! This is pointless";
         postRequest(myUsername, URL);
